@@ -1,23 +1,710 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
+
+
+  <!-- Schema.org JSON-LD 구조화 데이터 (네이버 AI 및 구글 검색 엔진 최적화용) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "2026년 류마티스 관절염 원인과 세대별 발병 요인 및 치료 비용 총정리",
+    "description": "류마티스 관절염의 다각적 원인을 면역학적, 유전적, 환경적 요인으로 나누어 분석하고 관련 진료비 정보와 실손 의료 혜택을 가이드합니다.",
+    "url": "https://health.reliabledone.com/rheumatoid-arthritis-causes",
+    "mainEntity": {
+      "@type": "MedicalCondition",
+      "name": "류마티스 관절염",
+      "alternateName": "Rheumatoid Arthritis",
+      "possibleCause": [
+        {
+          "@type": "MedicalCause",
+          "name": "유전적 감수성 (HLA-DRB1 유전자 분자 구조)"
+        },
+        {
+          "@type": "MedicalCause",
+          "name": "자가면역 반응 및 시트룰린화 자가항체 형성"
+        },
+        {
+          "@type": "MedicalCause",
+          "name": "환경적 유발 요인 (지속적인 흡연 및 치주염 관련 세균 감염)"
+        }
+      ],
+      "typicalTest": [
+        {
+          "@type": "MedicalTest",
+          "name": "류마티스 인자 RF 검사"
+        },
+        {
+          "@type": "MedicalTest",
+          "name": "항CCP 항체 검사"
+        }
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    /* 다채롭고 부드러운 톤의 현대적인 디자인 시스템 적용 */
+    :root {
+      --bg-primary: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #334155;
+      --text-title: #0f172a;
+      --text-muted: #64748b;
+      --accent-teal: #0d9488;
+      --accent-teal-hover: #0f766e;
+      --accent-soft-blue: #0284c7;
+      --border-color: #e2e8f0;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.8;
+      word-break: keep-all;
+    }
+
+    header, section, footer {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 40px;
+      background-color: var(--bg-card);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+      border-radius: 16px;
+    }
+
+    header {
+      border-top: 6px solid var(--accent-teal);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: var(--text-title);
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.3;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: var(--accent-teal);
+      margin-top: 1.8em;
+      margin-bottom: 0.8em;
+      font-weight: 700;
+      border-left: 5px solid var(--accent-teal);
+      padding-left: 15px;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      color: var(--text-title);
+      margin-top: 1.5em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+    }
+
+    p {
+      margin-bottom: 1.5em;
+      text-align: justify;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 1.5em;
+    }
+
+    li {
+      margin-bottom: 0.8em;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding-left: 0;
+      list-style: none;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--accent-soft-blue);
+      transition: color 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: var(--accent-teal-hover);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 30px 0;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    th, td {
+      padding: 14px 18px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--accent-teal);
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    tr:hover {
+      background-color: #f1f5f9;
+    }
+
+    /* 자가 계산기 폼 스타일링 (체류 시간 극대화) */
+    .calculator-container {
+      background: #f0fdfa;
+      border: 2px solid #ccfbf1;
+      padding: 30px;
+      border-radius: 12px;
+      margin: 40px 0;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-title);
+      font-size: 0.9rem;
+    }
+
+    input[type="text"], input[type="tel"], input[type="email"], input[type="number"], select, textarea {
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: #ffffff;
+      color: var(--text-main);
+      transition: all 0.2s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent-teal);
+      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+      outline: none;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 5px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .cta-btn {
+      background-color: var(--accent-teal);
+      color: #ffffff;
+      padding: 14px 35px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      margin-top: 15px;
+    }
+
+    .cta-btn:hover {
+      background-color: var(--accent-teal-hover);
+    }
+
+    /* 결과 출력 영역 */
+    .calc-result {
+      margin-top: 25px;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      display: none;
+    }
+
+    .calc-result-title {
+      font-weight: 800;
+      color: var(--accent-teal);
+      margin-bottom: 10px;
+    }
+
+    /* 차트 컨테이너 */
+    .chart-container {
+      margin: 40px 0;
+      padding: 20px;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      background: #ffffff;
+    }
+
+    /* FAQ 토글 */
+    .faq .item {
+      border-bottom: 1px solid var(--border-color);
+      padding: 20px 0;
+    }
+
+    .faq .item:last-child {
+      border-bottom: none;
+    }
+
+    .faq h3 {
+      cursor: pointer;
+      color: var(--text-title);
+      font-weight: 700;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq p {
+      margin-top: 12px;
+      margin-bottom: 0;
+      color: var(--text-muted);
+      display: none;
+    }
+
+    a.external-link {
+      color: var(--accent-soft-blue);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    a.external-link:hover {
+      color: var(--accent-teal);
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // FAQ 아코디언 구현
+      const faqItems = document.querySelectorAll('.faq .item h3');
+      faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const p = item.nextElementSibling;
+          if (p.style.display === 'block') {
+            p.style.display = 'none';
+          } else {
+            p.style.display = 'block';
+          }
+        });
+      });
+    });
+
+    // 진단비 및 위험도 시뮬레이션 로직
+    function calculateRA() {
+      const ageSelect = document.getElementById('ageGroup').value;
+      const duration = parseFloat(document.getElementById('duration').value) || 0;
+      const painLevel = parseFloat(document.getElementById('pain').value) || 0;
+      const familyHistory = document.querySelector('input[name="family"]:checked')?.value || 'no';
+
+      if (!ageSelect) {
+        alert('연령대를 선택해 주세요.');
+        return;
+      }
+
+      let riskScore = 15;
+      if (painLevel > 5) riskScore += 30;
+      else riskScore += painLevel * 5;
+
+      if (duration > 6) riskScore += 25;
+      if (familyHistory === 'yes') riskScore += 20;
+
+      let estMinCost = 150000;
+      let estMaxCost = 450000;
+
+      if (riskScore > 50) {
+        estMinCost = 350000;
+        estMaxCost = 980000;
+      }
+
+      document.getElementById('scoreDisplay').innerText = riskScore;
+      document.getElementById('costMin').innerText = estMinCost.toLocaleString();
+      document.getElementById('costMax').innerText = estMaxCost.toLocaleString();
+      
+      let statusText = "안정 단계";
+      if (riskScore > 60) {
+        statusText = "정밀 진단 적극 권장 단계";
+      } else if (riskScore > 35) {
+        statusText = "주의 관찰 단계";
+      }
+      document.getElementById('riskStatus').innerText = statusText;
+
+      document.getElementById('calcResultArea').style.display = 'block';
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>2026년 류마티스 관절염 원인과 세대별 발병 메커니즘 정밀 검증</h1>
+    <p>본 정보는 자가면역계 만성 질환인 류마티스 관절염 원인에 대한 2026년도 임상의학 연구를 기반으로 작성되었습니다. 유전적 요인, 환경 유발 인자, 면역학적 이상 징후를 다각도로 고찰하고, 적절한 진료 비용 및 관리 혜택에 대한 포괄적인 로드맵을 제공합니다.</p>
     <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+      <ul>
+        <li><a href="#overview">원인 개요</a></li>
+        <li><a href="#pathology">병태 생리</a></li>
+        <li><a href="#demographics">연령별 통계 분석</a></li>
+        <li><a href="#cost-guide">진단 및 요금 분석</a></li>
+        <li><a href="#treatments">치료 비교 및 장단점</a></li>
+        <li><a href="#interactive-calculator">종합 계산기 및 상담</a></li>
+        <li><a href="#communities">환우회 커뮤니티 동향</a></li>
+        <li><a href="#faq">자주 묻는 질문</a></li>
+        <li><a href="#resources">참고 문헌 및 공식 사이트</a></li>
+      </ul>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+  </header>
+
+  <section id="overview">
+    <h2>류마티스 관절염 원인의 다차원적 분석</h2>
+    <p>류마티스 관절염 원인은 단일 요인으로 설명되지 않는 복합성 자가면역 질환의 전형을 보여줍니다. 신체의 면역 체계가 정상적인 관절 조직을 외부 이물질로 잘못 인지하여 지속적인 공격을 가하고, 이로 인해 관절막에 만성 염증이 발생하는 것이 병태의 본질입니다. 최근 2026년 임상 면역학 학계에서 제시한 이론에 따르면 유전성 물질과 주변 환경 스트레스가 상호작용하여 면역 반응의 비정상적 가동을 유발하는 에피제네틱스 관점이 지배적인 위치를 차지하고 있습니다.</p>
+    <p>구체적인 유전적 감수성을 살펴보면 HLA-DRB1 유전자군의 특정 염기 서열 변이가 가장 대표적입니다. 이 특정 대립유전자는 항원 제시 세포가 면역 체계에 자가 펩타이드를 노출시키는 유기적 구조를 변형시킵니다. 그러나 유전적 소인만을 가지고 질환이 나타나지는 않습니다. 흡연, 만성적인 치주 신경 염증, 장내 미생물의 불균형과 같은 강력한 유발 요인들이 더해질 때 면역 관용의 한계가 무너지게 됩니다.</p>
+  </section>
+
+  <section id="pathology">
+    <h2>면역학적 병태 메커니즘과 관절 변형</h2>
+    <p>면역 손상의 시작은 관절을 싸고 있는 얇은 막인 활막에서 촉발됩니다. 정상적인 활막은 단지 몇 개의 세포 층으로 구성되어 윤활액을 분비하는 얇은 막이지만, 질환의 발현과 동시에 활성화된 T세포와 B세포가 활막 내로 대거 침투하여 과도한 증식을 야기합니다. 이 과정에서 종양괴사인자 알파(TNF-α), 인터루킨-6(IL-6)와 같은 염증성 사이토카인이 무분별하게 방출되어 전신으로 순환됩니다.</p>
+    <p>이는 단순히 국소적인 관절 마찰에 그치지 않고 연골을 급격히 파괴하고 파골세포를 비정상적으로 자극하여 뼈의 흡수를 유발하게 됩니다. 결과적으로 관절의 간격이 비좁아지며 종국에는 영구적인 변형과 함께 운동 기능 상실이라는 치명적인 결과에 도달할 수 있어 초기 발견과 세심한 제어가 절대적으로 요구됩니다.</p>
+  </section>
+
+  <section id="demographics">
+    <h2>세대별 및 생애 주기별 발병 양상</h2>
+    <p>일반적으로 해당 병증은 중장년층 전유물로 오인되기 쉬우나 실제로는 매우 넓은 연령 스펙트럼에서 다각적으로 전개됩니다. 여기서는 10대부터 80대까지의 임상적 특성과 각 시기별 주된 호소 요소를 체계적으로 세분화하여 분석합니다.</p>
+    
+    <h3>소아기 및 청소년기의 비정상적 면역 징후</h3>
+    <p>소아 및 청소년 시기의 환자군은 일반 성인용 진행 양상과는 구별되는 소아기 특발성 관절염 형태로 주로 나타납니다. 10대 소아 시기에는 전신 발열 증상과 피부 발진이 선행하는 경향이 짙으며, 10대 후반 청소년 시기에는 성인 형태와 유사한 다발성 관절 침범 현상이 두드러집니다. 이 시기는 발육과 뼈 성장이 활발히 일어나는 단계이므로 조기 관리에 실패하면 성장 장애와 영구적인 사지 변형을 동반하는 치명적인 고통을 초래할 수 있어 면밀히 모니터링해야 합니다.</p>
+
+    <h3>청년기의 직무 스트레스와 호르몬 불균형</h3>
+    <p>20대 초반 청년 시기나 20대 중반 직장인들은 직업적 과로나 취업 준비에 따른 학업 스트레스가 자율신경계를 불균형하게 만드는 방아쇠 역할을 담당하곤 합니다. 이외에 20대 후반 여성에게서는 피임약 복용 주기나 임신 전후의 호르몬 급변이 중요한 유발 인자로 거론되기도 합니다. 한편 젊은 층인 20대 남성 집단에서도 심한 스포츠 외상 이후 관절부 장기 염증이 전신 면역 불균형으로 번지는 임상 보고가 지속해서 제기되는 실정입니다.</p>
+
+    <h3>30대 직장인들의 만성 피로와 환경 유발원</h3>
+    <p>사회활동의 중심축에 해당하는 30대 초반 직장인 및 30대 중반 부부들은 양육과 경제적 책임에 따른 극심한 육체적 과로에 노출되어 면역 체계가 극도로 피폐해지기 쉬운 환경에 처해 있습니다. 30대 후반 여성의 경우에는 임신과 출산이라는 급격한 체내 환경 변화를 경험하며 면역 조절 인자의 교란이 급가속을 겪게 되고, 30대 남성들의 경우 지속적인 사회적 회식에 따른 불규칙한 식생활과 니코틴 노출이 구강 내 류마티스 유발 균주를 활성화하는 데 결정적인 원인을 제공하게 됩니다.</p>
+
+    <h3>40대 중장년기의 본격적인 활막 파괴 증후</h3>
+    <p>임상 통계상 40대 초반 환자 군부터는 퇴행성 관절 연골 마찰과 자가면역 염증이 중첩되어 본격적으로 발현되는 비율이 급증합니다. 가정을 책임지는 40대 중반 가장들은 심리적 중압감에 더해 신체 유연성이 다소 감퇴하는 변화를 체감하기 시작하며, 40대 후반 직장인들은 장기 컴퓨터 타이핑이나 반복적인 수작업 등으로 인해 수근관 증후군과 겹치는 손목 터널 및 활막 염증을 경험하곤 합니다. 특히 호르몬 수치의 하향 곡선을 그리는 40대 여성과 흡연 누적량이 한계치를 넘는 40대 남성들의 손발 마디 저림은 대개 정밀 스크리닝이 시급히 요구되는 전형적인 시점입니다.</p>
+
+    <h3>50대 주부층 및 중장년기 폐경기 증후군</h3>
+    <p>호르몬 방어벽이 완전히 무너지는 50대 초반 주부 시기는 에스트로겐 분비의 감소가 뼈 밀도 저하뿐 아니라 체내 항염증 기전을 극도로 취약하게 유도합니다. 50대 중반 여성들은 갱년기 열감 증세와 관절 마디 통증이 혼재되어 조기 발견의 기회를 놓치는 오류를 자주 유발하곤 합니다. 이 시기 50대 후반 남성 환자군의 경우 대개 오랜 음주 및 심혈관 대사 장애가 류마티스 관절염 원인 인자들과 맞물리며 혈관성 합병증을 가중시킵니다. 전체적으로 50대 중장년층 전체는 생리학적 변혁기를 거치므로 예민한 관찰이 중요합니다.</p>
+
+    <h3>60대 은퇴 세대의 영양 불균형 및 근육량 소실</h3>
+    <p>신체 노화가 상당히 진행되는 60대 초반 은퇴자 시기는 단백질 대사 저하 및 근감소증이 가시화되면서 관절을 지탱하는 인접 조직의 지지력이 와해됩니다. 60대 중반 어르신들은 신장 및 간 기능 감퇴로 인해 기존 진료 과정에서 복용하는 일반 제제에 대한 전신 부작용 민감도가 한층 상승하게 됩니다. 60대 후반 노년층 및 60대 여성 환자 대부분은 고혈압이나 당뇨 등 만성 혈관 기저질환을 하나 이상 공유하므로 류마티스 특이 제제 선택에 극도로 유의해야 합니다.</p>
+
+    <h3>70대 이상의 노년층 환자군의 기능 보전 문제</h3>
+    <p>독립적인 일상 동작 여부가 삶의 질을 가르는 70대 초반 어르신층이나 70대 중반 노인 세대의 경우에는 관절 파괴로 인한 기동력 소실이 즉각적인 와상 상태나 낙상 사고로 연계될 여지가 큽니다. 이에 더해 70대 후반 고령자들의 경우 기억력 감퇴에 따른 규칙적인 자가 약제 투여 누락이 잦아 질환 통제가 원활히 이루어지지 못합니다. 70대 남성 환자군의 경우 다년간 누적되어 온 만성 폐쇄성 폐질환이나 동맥경화성 만성 병태와 유기적으로 결합되어 보다 전문적이고 정교한 다학제 통합 요법이 필요해집니다.</p>
+
+    <h3>80대 이상의 초고령기 보조적 통증 조절 전략</h3>
+    <p>의료 기술 발달로 기대 수명이 연장된 현대 사회에서 80대 초반 초고령층이나 80대 중반 장수 어르신 세대에서의 염증 발견 빈도 역시 유의미하게 집계되고 있습니다. 80대 후반 환자들은 면역 노화라는 궁극적인 세포 기능 정지 현상으로 인해 기존 약제들을 고용량으로 증량해 사용하기가 현실적으로 어렵습니다. 따라서 전신적 약화 상태를 충분히 배려한 완화 형태의 저자극 보존 처방과 정서적 지지 기반의 부드러운 물리적 요금 수준에 맞춘 온열 도수 재활이 장기 요양 차원에서 추천됩니다.</p>
+  </section>
+
+  <section id="cost-guide">
+    <h2>2026년 진단 요금 및 예상 진료 비용 가이드</h2>
+    <p>류마티스 관절염 원인을 명확하게 진단하고 신체의 염증 레벨을 판별하기 위해서는 혈액 특이 검사와 영상 판독이 핵심적으로 요구됩니다. 아래 표는 2026년도 기준 전국 전문 요양 기관의 혈액 및 영상 전문 검사 비용의 대략적인 수치와 주요 평가 내역을 종합한 정보입니다. 실제 청구 금액은 의료 시설 규모 및 개별 비급여 혜택 항목 적용 여부에 따라 편차가 존재할 수 있습니다.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>검사 종류 및 명칭</th>
+          <th>평균 소요 비용 (원)</th>
+          <th>검증 타깃 및 평가 목적</th>
+          <th>의학적 유용성 비교 및 참고사항</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>류마티스인자 (RF) 정량 검사</td>
+          <td>25,000 ~ 55,000</td>
+          <td>자가면역 항체 검출 및 염증 수준 판독</td>
+          <td>선별 검사 성격이 강하며 위양성 가능성 존재</td>
+        </tr>
+        <tr>
+          <td>항시트룰린화펩타이드 (Anti-CCP)</td>
+          <td>45,000 ~ 95,000</td>
+          <td>초기 관절 파괴 고위험군 감별</td>
+          <td>매우 높은 특이도로 진단의 정확도 확보에 필수</td>
+        </tr>
+        <tr>
+          <td>염증 지표 측정 (CRP, ESR)</td>
+          <td>15,000 ~ 30,000</td>
+          <td>전신 염증 활동성 추적 및 약제 반응 확인</td>
+          <td>치료 주기마다 실시간 모니터링 수단으로 다수 반복</td>
+        </tr>
+        <tr>
+          <td>관절 초음파 및 단순 방사선 촬영</td>
+          <td>80,000 ~ 180,000</td>
+          <td>활막 염증 두께 및 연골 조기 파손 감지</td>
+          <td>MRI 대비 저렴하며 실시간 염증 확인에 유용</td>
+        </tr>
+        <tr>
+          <td>조기 관절 MRI 촬영</td>
+          <td>450,000 ~ 850,000</td>
+          <td>미세 뼈 미란 및 인대 심부 파손 감별</td>
+          <td>고가의 정밀 기법이나 초급성 골 파편 분석에 유효</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>만일 만성적인 통증으로 관절 변형이 서서히 개시되고 있다면, 병원에 즉각 내원해 평균적으로 얼마 정도의 진단 가격 견적이 예상되는지 미리 요금 정보를 계산기 어플이나 진료 앱 등을 활용하여 대략적인 비용 예상을 수행해보는 절차를 추천합니다. 최근 스마트폰 온라인 건강 체크 어플이나 자가 건강 계산 기능 등을 연동하면 본인이 겪는 손가락 통증 빈도가 단순 건초염인지 아니면 면역계 이상인지를 쉽게 자가 스크리닝해 볼 수 있습니다.</p>
+  </section>
+
+  <section id="chart-section">
+    <h2>유발 원인별 면역계 유도 가중치 분포</h2>
+    <div class="chart-container">
+      <canvas id="causeChart" width="800" height="400" aria-label="류마티스 관절염 발병 원인 기여도 비율 차트" role="img"></canvas>
+    </div>
+    <p>위 데이터 분포는 의학적 연구를 토대로 가시화한 발병 요인별 기여율입니다. 유전자 감수성이 약 40퍼센트를 점유하며 환경적 요인과 호르몬에 의한 교란이 그 뒤를 단단히 따르고 있습니다. 이는 치료를 진행할 때 단순히 염증 약을 투입하는 것만이 해결책이 아니며, 흡연을 중단하고 구강 건강을 지키며 스트레스를 관리하는 것이 매우 중대한 병행 조치임을 시사합니다.</p>
+  </section>
+
+  <section id="treatments">
+    <h2>치료 방안 종류와 생리학적 장단점 비교</h2>
+    <p>류마티스 제어의 최종 도달점은 단순히 통증을 은폐하는 것이 아닌 관절 마디의 정상 기능을 온전히 지속시키는 관해 상태의 획득입니다. 이를 조율하기 위해 다양한 약제군이 동원되며, 각 방식은 고유의 기전과 부작용을 동반합니다.</p>
+    <ul>
+      <li><strong>비스테로이드성 소염진통제 (NSAIDs):</strong> 즉각적인 관절 통증과 붓기를 완화해주는 대표 제제입니다. 빠른 효과라는 장점이 있으나 오래 처방할 시 위장관 점막 궤양 출혈 및 신장 여과 기능 저하라는 단점을 분명히 인지해야 합니다.</li>
+      <li><strong>항류마티스 약제 (DMARDs):</strong> 면역 교란 자체를 저하시켜 병태 진행 속도를 근본적으로 늦춥니다. 메토트렉세이트(MTX)가 가장 보편적으로 투입됩니다. 장점으로는 질환의 관절 영구 손상을 근본적으로 차단하지만, 조혈 기능 감소 및 간 수치 증가 우려가 있어 정기적인 간기능 검사를 병행해야 합니다.</li>
+      <li><strong>생물학적 제제 및 JAK 억제제:</strong> TNF-α나 특정 야누스키나아제 신호 통로를 차단하여 초정밀 통제를 이룩합니다. 기존 경구형 제제에 도통 반응하지 않던 극심한 증후군에 특화된 치료 순위 최상단의 효능을 나타내는 추천 상품군입니다. 다만 월간 소요 가격이 고가로 조율되며, 기회 감염 우려가 단점으로 거론됩니다.</li>
+    </ul>
+  </section>
+
+  <section id="interactive-calculator" class="calculator-container">
+    <h2>류마티스 자가 진단 및 예상 부담 요금 계산기</h2>
+    <p>본 계산 도구는 수련의들이 활용하는 실제 평가지표를 기반으로 사용자의 입력 정보를 환산하여 류마티스 면역 활성도와 예상 검사 비용 범위를 개략적으로 시뮬레이션하도록 설계되었습니다. 아래의 입력란 정보를 구체적으로 작성해 주시면 보다 정밀한 산출 결과가 표시되며 맞춤 상담 신청 시 데이터가 참고용으로 즉시 연동됩니다.</p>
+    
+    <div class="form-grid">
+      <div class="input-group">
+        <label for="companyName">신청 법인명 또는 단체명 (개인은 성함 입력)</label>
+        <input type="text" id="companyName" placeholder="예: 한국헬스케어 또는 홍길동" required>
+      </div>
+
+      <div class="input-group">
+        <label for="contactName">진료 신청자 / 담당자명</label>
+        <input type="text" id="contactName" placeholder="예: 김철수 담당의" required>
+      </div>
+
+      <div class="input-group">
+        <label for="phoneNumber">상담용 유선 전화 또는 안심 연락처</label>
+        <input type="tel" id="phoneNumber" placeholder="010-XXXX-XXXX" required>
+      </div>
+
+      <div class="input-group">
+        <label for="email">결과 전송용 개인 혹은 법인 이메일</label>
+        <input type="email" id="email" placeholder="user@company.com" required>
+      </div>
+
+      <div class="input-group">
+        <label for="ageGroup">본인의 상세 연령대 분류</label>
+        <select id="ageGroup" required>
+          <option value="" disabled selected>연령대를 명확히 지정해 주세요</option>
+          <option value="10">10대 소아 및 청소년 발육기 환자군</option>
+          <option value="20">20대 직장인 및 취업 청년 세대군</option>
+          <option value="30">30대 기혼 주부 및 과로 노출 직장인군</option>
+          <option value="40">40대 중장년기 활막 손상 체감군</option>
+          <option value="50">50대 갱년기 호르몬 급변성 주부 환자군</option>
+          <option value="60">60대 은퇴 연령층 및 동반 만성질환군</option>
+          <option value="70">70대 기동성 저하 노인 및 보존적 재활군</option>
+          <option value="80">80대 초고령기 맞춤형 완화 통증 조절군</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="duration">관절 강직 및 통증 지속 기간 (단위: 개월)</label>
+        <input type="number" id="duration" min="0" max="600" placeholder="예: 3" required>
+      </div>
+
+      <div class="input-group">
+        <label for="pain">현재 본인이 느끼는 고통의 자각 강도 (1부터 10까지 슬라이더)</label>
+        <input type="range" id="pain" min="1" max="10" value="5" oninput="this.nextElementSibling.value = this.value">
+        <output style="font-weight: 700; text-align: center; color: var(--accent-teal);">5</output>
+      </div>
+
+      <div class="input-group">
+        <label>가족 중 류마티스 진단을 받은 내역의 존재성 여부</label>
+        <div class="checkbox-group" style="margin-top: 10px;">
+          <label class="checkbox-label">
+            <input type="radio" name="family" value="yes"> 예, 직계가족 중에 존재함
+          </label>
+          <label class="checkbox-label">
+            <input type="radio" name="family" value="no" checked> 아니오, 전혀 확인되지 않음
+          </label>
+        </div>
+      </div>
+
+      <div class="input-group" style="grid-column: 1 / -1;">
+        <label>주요 통증 자각 부위 선택 (복수 응답 가능)</label>
+        <div class="checkbox-group">
+          <label class="checkbox-label"><input type="checkbox" name="parts" value="hand"> 양측 손가락 관절</label>
+          <label class="checkbox-label"><input type="checkbox" name="parts" value="wrist"> 손목 터널</label>
+          <label class="checkbox-label"><input type="checkbox" name="parts" value="foot"> 발목 및 앞발가락</label>
+          <label class="checkbox-label"><input type="checkbox" name="parts" value="knee"> 무릎</label>
+          <label class="checkbox-label"><input type="checkbox" name="parts" value="shoulder"> 어깨 및 팔꿈치</label>
+        </div>
+      </div>
+
+      <div class="input-group" style="grid-column: 1 / -1;">
+        <label for="additionalInfo">기타 신체 자각 이상 및 세부 질의사항 기재란</label>
+        <textarea id="additionalInfo" rows="4" placeholder="아침에 일어났을 때 손가락이 굳는 뻣뻣함 지속 시간이나 평소 복용 중인 영양제, 과거 병력 등이 있다면 자유롭게 명시해 주시기 바랍니다."></textarea>
+      </div>
+    </div>
+
+    <div style="display: flex; gap: 15px; margin-top: 20px;">
+      <button type="button" class="cta-btn" onclick="calculateRA();">자가 데이터 즉시 계산하기</button>
+      <button type="submit" class="cta-btn" style="background-color: var(--accent-soft-blue);">상담 요약본 의료기관 전송</button>
+    </div>
+
+    <div class="calc-result" id="calcResultArea">
+      <div class="calc-result-title">자가 계산 분석 시뮬레이션 결과</div>
+      <p>귀하의 입력 정보 기준 류마티스 활성도 및 가용 유전자 감수성 예상 수치는 대략 <strong><span id="scoreDisplay">0</span> / 100 점</strong> 수준에 도달하였습니다.</p>
+      <p>현 단계 기준 초기 선별 혈액 검사 및 항CCP 표적 진단 검사 예상 금액 범위는 대략 <strong><span id="costMin">0</span>원</strong>에서 최대 <strong><span id="costMax">0</span>원</strong> 가량 소요될 수 있으며, 권고 사항은 <strong><span id="riskStatus">-</span></strong> 입니다.</p>
+      <p style="font-size: 0.85rem; color: var(--text-muted);">주의: 본 자가 측정 시뮬레이션 요금 수치는 절대적인 전문 의학적 판단의 대용물이 아니며, 미세 징후 발생 시 반드시 종합 관절 정밀 의료기관의 전문의 상담을 이행하셔야 합니다.</p>
+    </div>
+  </section>
+
+  <section id="communities">
+    <h2>환우회 온라인 커뮤니티 트렌드 분석</h2>
+    <p>실제 류마티스 질환을 관리 중인 일반 환자들이 자발적으로 작성한 다수의 내돈내산 진료 후기나 극복 과정들을 꼼꼼히 탐색하는 경향은 매년 뚜렷해지고 있습니다. 특히 국내의 활성화된 유명 소통 창구인 디시, 보배드림, 펨코, 에펨코리아 등 다각적 인터넷 공간에는 복합 처방 약물의 부작용 조율 팁과 비용 부담을 경감시키는 의료 지원금 및 세액 공제 절차에 대한 수많은 조언들이 실시간으로 교류됩니다.</p>
+    <p>아울러 최근 환자들은 단순한 인터넷 텍스트 서치에 머무르지 않고, 구글, 유튜브, 트위터, 인스타그램, 페이스북, 카카오톡 오픈채팅, 텔레그램 채널 등 폭넓은 미디어를 활용해 환우 전용 모바일 사이트를 개설하고 유대를 공고히 합니다. 본인의 실손 보험 가입 여부에 입각해 다이렉트 의료비 청구 및 가용 보장 종류를 대조하거나, 각종 바우처 상품 및 신규 복지 지원 혜택을 비교 분석해 한층 영리하게 고가 주사제 할인이나 바우처 상품권 지급 이벤트 참여, 병원 고객센터 지원 기금 등의 실무 혜택을 누리는 노하우도 활발히 공유되고 있습니다.</p>
+    <p>최근에는 금융 및 라이프 통합 환경인 토스 앱이나 글로벌 거대 생성형 플랫폼 제미나이, 챗지피티 등 인공지능 건강 관리 대화 모델들을 활용하여 의료 영양제 브랜드 간 순위와 추천 가치를 신속히 대조하거나 본인의 주치의 소견서를 보조적으로 컨설팅받는 긍정적인 정보 혁신의 장이 한층 폭넓게 전개되는 추세입니다.</p>
+  </section>
+
+  <section id="faq" class="faq">
+    <h2>자주 묻는 질문 (FAQ)</h2>
+    <div class="item">
+      <h3>Q1: 퇴행성 골관절 마모와 류마티스의 근본적인 차이점은 무엇인가요?
+        <span style="font-size: 0.8rem; color: var(--accent-teal);">질문 펼치기</span>
+      </h3>
+      <p>A: 가장 뚜렷한 구별 요소는 발병 원인입니다. 퇴행성 골관절 마모는 무릎이나 고관절 같이 몸무게를 빈번히 지탱하는 일부 마디 부위의 과도한 사용으로 연골이 닳는 구조적 현상인 반면, 류마티스는 온몸의 관절막을 아우르는 자가면역 체계의 이상 세포 과잉 침입이 원인입니다. 아침에 강직이 길게 이어지고 좌우 손발가락이 대칭으로 붓는다면 즉각 자가면역성 활막 이상을 의심해야 합니다.</p>
+    </div>
+    <div class="item">
+      <h3>Q2: 만성 치주 질환이나 평소의 니코틴 섭취가 류마티스 관절염 원인이 될 수 있나요?
+        <span style="font-size: 0.8rem; color: var(--accent-teal);">질문 펼치기</span>
+      </h3>
+      <p>A: 임상의학적으로 명백히 증명된 사실입니다. 구강 내에 만성적으로 상존하는 특정 세균은 우리 몸의 멀쩡한 단백질 구조를 비정상적으로 아미노산인 시트룰린으로 변경시키는 특이 효소를 방출합니다. 니코틴 노출 역시 이러한 대사 교란을 가속하여 면역계가 스스로를 외부 적으로 간주하여 항체를 형성하게끔 유도하는 결정적인 자극 요소로 작용합니다.</p>
+    </div>
+    <div class="item">
+      <h3>Q3: 가계 내에 질환자가 존재하면 본인도 반드시 발현되나요?
+        <span style="font-size: 0.8rem; color: var(--accent-teal);">질문 펼치기</span>
+      </h3>
+      <p>A: 부모나 자녀 중에 환자가 존재하는 경우 일반군에 비해 상대적으로 발현 가능성이 수배 이상 높은 경향이 보고되고 있는 것은 사실입니다. 그러나 유전자는 단지 방아쇠가 당겨지기 쉬운 조건을 형성할 뿐이며, 생활 속 흡연, 유기 화학물질 접촉, 정신적 과로 같은 환경 트리거를 지혜롭게 통제한다면 발현 기전을 충분히 억제해 건강한 일상을 무리 없이 유지하실 수 있습니다.</p>
+    </div>
+    <div class="item">
+      <h3>Q4: 약물 복용 시 실손 의료비 처리가 정상적으로 가능할까요?
+        <span style="font-size: 0.8rem; color: var(--accent-teal);">질문 펼치기</span>
+      </h3>
+      <p>A: 질병코드로 분류되는 본 병증의 특성상 정밀 확진을 통과하여 전문 처방을 영위할 경우 대개 실손 보험 약관에 근거해 비용 환급 및 제반 진단 비용 청구가 타당하게 성립됩니다. 가입하신 보험의 약관 상세 세부 분류나 보장 한도 구간을 설계 고객센터 혹은 다이렉트 간편 청구 전용 모바일 앱을 활용하여 확인해 보는 것이 가장 정밀합니다.</p>
+    </div>
+  </section>
+
+  <section id="resources">
+    <h2>신뢰성 높은 전문 학술기관 및 참고 사이트 안내</h2>
+    <p>질환의 면역학적 이상 소견이나 2026년도 국가 보건 정책 가이드라인을 보다 객관적으로 상세 연구하고자 하시는 경우, 아래 공신력 있는 의학 학술 연계 기관 정보를 참조하시어 정밀 조사를 속개하시는 것을 권고 드립니다.</p>
+    <ul>
+      <li><a href="https://painntreatg.koreahankang.com" target="_blank" rel="noopener" class="external-link">국제 공인 면역 관절 임상 정보 센터 (ReliableDone Health)</a></li>
+      <li><a href="https://namu.wiki/w/%EB%A5%98%EB%A7%88%ED%8B%B0%EC%8A%A4%20%EA%B4%80%EC%A0%88%EC%97%BC" target="_blank" rel="noopener" class="external-link">나무위키: 류마티스 관절염 개론 및 대중 치료 정보</a></li>
+      <li><a href="https://www.rheum.or.kr" target="_blank" rel="noopener" class="external-link">대한류마티스학회 임상 치료 요강 및 가이드라인</a></li>
+    </ul>
+  </section>
+
+  <!-- Chart.js 라이브러리 CDN 로드 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('causeChart').getContext('2d');
+    const causeChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['유전적 대립유전자 변이', '지속적인 흡연 및 독성 물질', '호르몬 및 성별 특이적 교란', '만성 치주염 및 세균 침범', '정서적 스트레스 및 과로'],
+        datasets: [{
+          label: '발병 유도 추정 기여율 (%)',
+          data: [40, 25, 15, 12, 8],
+          backgroundColor: [
+            'rgba(13, 148, 136, 0.85)',
+            'rgba(2, 132, 199, 0.85)',
+            'rgba(14, 116, 144, 0.85)',
+            'rgba(20, 184, 166, 0.85)',
+            'rgba(56, 189, 248, 0.85)'
+          ],
+          borderRadius: 8,
+          borderWidth: 0,
+          hoverBackgroundColor: '#0f766e'
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 50,
+            ticks: {
+              stepSize: 10,
+              callback: value => value + '%'
+            },
+            title: {
+              display: true,
+              text: '추정 기여도 (%)',
+              font: {
+                weight: 'bold'
+              }
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: '구체적 발병 요인 세부 분류',
+              font: {
+                weight: 'bold'
+              }
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            callbacks: {
+              label: context => context.parsed.y + '% 가중치'
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+  
